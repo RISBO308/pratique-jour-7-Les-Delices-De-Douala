@@ -1,0 +1,67 @@
+.restaurant-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 390px;
+  padding: 0;
+  border: 1px solid rgba(15, 118, 110, 0.12);
+  border-radius: 20px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8faf7 100%);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 36px rgba(15, 118, 110, 0.18);
+}
+
+.restaurant-image {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+  background: linear-gradient(135deg, #d7f3ef, #e5e7eb);
+}
+
+.restaurant-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 14px 18px 12px;
+}
+
+.restaurant-name {
+  margin: 0 0 4px;
+  font-size: 1.22rem;
+  line-height: 1.2;
+  color: var(--color-primary-dark);
+  letter-spacing: -0.02em;
+}
+
+.restaurant-meta,
+.restaurant-specialty {
+  margin: 0 0 4px;
+  color: var(--color-muted);
+  line-height: 1.35;
+}
+
+.restaurant-meta {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.restaurant-specialty {
+  flex: 1 1 auto;
+  min-height: 24px;
+  margin-bottom: 8px;
+  font-size: 0.92rem;
+}
+
+app-star-rating {
+  display: block;
+  margin-top: auto;
+  padding-top: 2px;
+}

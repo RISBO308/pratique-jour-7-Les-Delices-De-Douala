@@ -1,0 +1,19 @@
+<!-- star-rating.html -->
+<div class="star-rating" (mouseleave)="onMouseLeave()">
+  @for (star of stars; track star) {
+    <span
+      class="star"
+      [class.filled]="isFilled(star)"
+      (mouseenter)="onStarHover(star)"
+      (click)="onStarClick(star)"
+    >★</span>
+  }
+</div>
+
+<p class="rating-label">
+  @if (currentRating() > 0) {
+    ({{ currentRating() }}/5)
+  } @else {
+    Cliquez !
+  }
+</p>

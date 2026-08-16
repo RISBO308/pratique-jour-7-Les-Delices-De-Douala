@@ -1,0 +1,9 @@
+<header class="app-header">
+  <h1>Délices de Douala</h1>
+  <div class="header-metrics">
+    <p>★ {{ ratedCount() }} / 6 restaurants notés</p>
+    @if (ratedCount() > 0) {
+      <p class="average-rating">★ {{ averageRating().toFixed(1) }}/5</p>
+    }
+  </div>
+</header>

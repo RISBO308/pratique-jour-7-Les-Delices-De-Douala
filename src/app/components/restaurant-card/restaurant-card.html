@@ -1,0 +1,14 @@
+<article class="restaurant-card">
+  <img class="restaurant-image" [src]="restaurant().image" [alt]="restaurant().name" />
+
+  <div class="restaurant-content">
+    <h3 class="restaurant-name">{{ restaurant().name }}</h3>
+    <p class="restaurant-meta">{{ restaurant().district }}</p>
+    <p class="restaurant-specialty">{{ restaurant().specialty }}</p>
+
+    <app-star-rating
+      [currentRating]="restaurant().currentRating"
+      (ratingChanged)="onRatingChanged($event)"
+    ></app-star-rating>
+  </div>
+</article>
