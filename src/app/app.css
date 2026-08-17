@@ -8,3 +8,19 @@
 :host > * {
   display: block;
 }
+
+.tp2-section {
+  margin: 32px 20px 40px;
+  padding: 24px 20px 18px;
+  border: 1px solid rgba(15, 118, 110, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 14px 28px rgba(15, 118, 110, 0.06);
+}
+
+.tp2-section h2 {
+  margin: 0 0 18px;
+  color: var(--color-primary-dark);
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+  letter-spacing: -0.04em;
+}

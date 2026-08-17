@@ -1,0 +1,33 @@
+@if (catalogue.isLoading()) {
+  <p class="menu-state">Chargement du menu…</p>
+} @else if (catalogue.error()) {
+  <p class="menu-state error">Impossible de charger le menu.</p>
+} @else {
+  <div class="category-filters" aria-label="Filtrer le menu par catégorie">
+    @for (cat of categories; track cat) {
+      <button
+        type="button"
+        class="category-button"
+        [class.active]="menuService.categorieSelectionnee() === cat"
+        (click)="selectionnerCategorie(cat)"
+      >
+        {{ cat }}
+      </button>
+    }
+  </div>
+
+  <ul class="menu-list">
+    @for (plat of platsFiltres(); track plat.id) {
+      <li class="menu-item">
+        @if (imageDuPlat(plat)) {
+          <img class="menu-image" [src]="imageDuPlat(plat)" [alt]="plat.nom" />
+        }
+        <div class="menu-main">
+          <span class="menu-name">{{ plat.nom }}</span>
+          <span class="menu-category">{{ plat.categorie }}</span>
+        </div>
+        <span class="menu-price">{{ plat.prix | currency:'XAF':'symbol':'1.0-0' }}</span>
+      </li>
+    }
+  </ul>
+}

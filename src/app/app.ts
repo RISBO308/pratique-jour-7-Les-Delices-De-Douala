@@ -1,11 +1,12 @@
 import { Component, computed, signal } from '@angular/core';
 import { Header } from './components/header/header';
 import { RestaurantList } from './components/restaurant-list/restaurant-list';
+import { Carte } from './components/carte/carte';
 import { Restaurant } from './models/restaurant';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, RestaurantList],
+  imports: [Header, RestaurantList, Carte],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
