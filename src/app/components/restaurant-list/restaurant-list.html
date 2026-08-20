@@ -1,19 +1,23 @@
-<button
-  type="button"
-  class="top-rated-toggle"
-  [class.active]="showOnlyTopRated()"
-  (click)="toggleTopRatedFilter()"
->
-  {{ showOnlyTopRated() ? 'Afficher tous les restaurants' : '★ Filtrer ≥ 4 étoiles' }}
-</button>
+<div class="restaurant-filters" aria-label="Filtrer les restaurants">
+  <button
+    type="button"
+    class="filter-button"
+    [class.active]="showOnlyTopRated()"
+    (click)="toggleTopRatedFilter()"
+  >
+    {{ showOnlyTopRated() ? 'Afficher tous les restaurants' : '★ Filtrer ≥ 4 étoiles' }}
+  </button>
+</div>
 
 @if (visibleRestaurants().length === 0) {
   <p class="empty-state">Aucun restaurant noté 4 étoiles ou plus pour l'instant</p>
 } @else {
-  @for (restaurant of visibleRestaurants(); track restaurant.id) {
-    <app-restaurant-card
-      [restaurant]="restaurant"
-      (restaurantRated)="onRestaurantRated($event)"
-    ></app-restaurant-card>
-  }
+  <div class="restaurant-grid">
+    @for (restaurant of visibleRestaurants(); track restaurant.id) {
+      <app-restaurant-card
+        [restaurant]="restaurant"
+        (restaurantRated)="onRestaurantRated($event)"
+      ></app-restaurant-card>
+    }
+  </div>
 }

@@ -45,3 +45,53 @@ img {
   display: block;
   max-width: 100%;
 }
+
+/* Accessibility: visible focus for keyboard users */
+:focus-visible {
+  outline: 3px solid rgba(15,118,110,0.18);
+  outline-offset: 3px;
+}
+
+button {
+  border: none;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Small utility */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Reserve top space for fixed header to avoid content being hidden */
+body {
+  /* default header height on desktop */
+  padding-top: 76px;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding-top: 86px; /* taller when header stacks on mobile */
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    padding-top: 72px;
+  }
+}

@@ -1,13 +1,16 @@
 .app-header {
-  position: sticky;
+  /* fixed header so it remains visible during scroll */
+  position: fixed;
   top: 0;
-  z-index: 10;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding: 26px 28px;
-  background: linear-gradient(135deg, rgba(11, 59, 58, 0.96), rgba(15, 118, 110, 0.9));
+  padding: 22px 24px;
+  background: linear-gradient(135deg, rgba(11, 59, 58, 0.96), rgba(15, 118, 110, 0.96));
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: var(--shadow-soft);
   backdrop-filter: blur(8px);

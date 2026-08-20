@@ -18,15 +18,27 @@
 
   <ul class="menu-list">
     @for (plat of platsFiltres(); track plat.id) {
-      <li class="menu-item">
-        @if (imageDuPlat(plat)) {
-          <img class="menu-image" [src]="imageDuPlat(plat)" [alt]="plat.nom" />
-        }
-        <div class="menu-main">
-          <span class="menu-name">{{ plat.nom }}</span>
-          <span class="menu-category">{{ plat.categorie }}</span>
+      <li class="menu-item" [class.unavailable]="!plat.disponible">
+        <div class="menu-image-container">
+          @if (imageDuPlat(plat)) {
+            <img class="menu-image" [src]="imageDuPlat(plat)" [alt]="plat.nom" loading="lazy" />
+          } @else {
+            <div class="menu-image-placeholder">🍲</div>
+          }
+          <span class="menu-badge" [class.badge-available]="plat.disponible" [class.badge-unavailable]="!plat.disponible">
+            {{ plat.disponible ? 'Disponible' : 'Épuisé' }}
+          </span>
         </div>
-        <span class="menu-price">{{ plat.prix | currency:'XAF':'symbol':'1.0-0' }}</span>
+
+        <div class="menu-content">
+          <div class="menu-main">
+            <h3 class="menu-name">{{ plat.nom }}</h3>
+            <span class="menu-category">{{ plat.categorie }}</span>
+          </div>
+          <div class="menu-footer">
+            <span class="menu-price">{{ plat.prix | currency:'XAF':'symbol':'1.0-0' }}</span>
+          </div>
+        </div>
       </li>
     }
   </ul>

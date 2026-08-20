@@ -1,62 +1,78 @@
 :host {
   display: block;
-  padding: 24px 20px 40px;
-}
-
-.top-rated-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  padding: 10px 16px;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background: var(--color-surface);
-  color: var(--color-primary-dark);
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(31, 77, 60, 0.05);
-}
-
-.top-rated-toggle:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(31, 77, 60, 0.08);
-}
-
-.top-rated-toggle.active {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: #fff;
-}
-
-:host {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  align-items: stretch;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 24px 20px 32px;
+}
+
+.restaurant-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.filter-button {
+  border: 1px solid rgba(15, 118, 110, 0.25);
+  background: #ffffff;
+  color: #0b3b3a;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-button:hover {
+  border-color: rgba(15, 118, 110, 0.5);
+  transform: translateY(-1px);
+}
+
+.filter-button.active {
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(15, 118, 110, 0.22);
+}
+
+/* Grille principale : 3 colonnes (disposant les 6 restaurants en 2 lignes et 3 colonnes) */
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* Responsive : 2 colonnes sur tablette */
+@media (max-width: 991px) {
+  .restaurant-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+/* Responsive : 1 colonne sur mobile */
+@media (max-width: 599px) {
+  :host {
+    padding: 16px 12px 24px;
+  }
+
+  .restaurant-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .filter-button {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .empty-state {
-  grid-column: 1 / -1;
   margin: 0;
-  padding: 20px 18px;
-  border: 1px dashed rgba(31, 77, 60, 0.25);
-  border-radius: 14px;
-  color: var(--color-muted);
-  background: rgba(255, 253, 249, 0.7);
-  font-weight: 500;
-}
-
-@media (max-width: 640px) {
-  :host {
-    padding: 16px 12px 28px;
-    grid-template-columns: 1fr;
-  }
-
-  .top-rated-toggle {
-    width: 100%;
-  }
+  padding: 16px 18px;
+  color: #0b3b3a;
+  font-weight: 600;
+  background: rgba(15, 118, 110, 0.08);
+  border: 1px solid rgba(15, 118, 110, 0.12);
+  border-radius: 12px;
 }
